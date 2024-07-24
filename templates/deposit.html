@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %} Deposit {% endblock %}
+{% block content %}
+    <h1>Deposit</h1>
+    </ul>
+    <form method="POST">
+        <label for="amount">Amount:</label>
+        <input type="number" name="amount" id="amount">
+        <button type="submit">Deposit</button>
+    </form>
+{% endblock %}

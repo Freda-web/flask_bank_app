@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %} Account Details {% endblock %}
+{% block content %}
+    <h1>Account Details</h1>
+    <table border="1">
+        <tr>
+            <td>Account Number</td>
+            <td>{{current_user.accountNo}}</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>{{current_user.email}}</td>
+        </tr>
+        <tr>
+            <td>Balance</td>
+            <td>N{{current_user.balance}}</td>
+        </tr>
+    </table>
+{% endblock %}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>{% block title %} {% endblock %}</title>
+</head>
+<body>
+   <header>
+    <nav class="navbar">
+        <ul class="navlist">
+            <li><a href="{{url_for('home')}}">Home</a></li>
+            {% if not current_user.is_authenticated %}
+            <li><a href="{{url_for('register')}}">Register</a></li>
+            <li><a href="{{url_for('login')}}">Login</a> </li>
+            {% else %}
+            <li><a href="{{url_for('account')}}">Account</a></li>
+            <li><a href="{{url_for('deposit')}}">Deposit</a></li>
+            <li><a href="{{url_for('withdraw')}}">Withdraw</a></li>
+            <li><a href="{{url_for('login')}}">Logout</a></li> | 
+            <p>Welcome, {{current_user.username}}!</p>
+            {% endif%}
+        </ul>
+    </nav>
+   </header>
+   <main>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div id="flash_messages">
+                {% for category, message in messages %}
+                <div class="flash {{ category }}"> {{message}}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+    
+    {% block content %} {% endblock %}
+   </main>
+   <footer>
+        <p>&copy; Aptech Bank 2024</p>
+   </footer>
+
+   <script>
+        setTimeout(function(){
+            let flashMessage = document.getElementById('flash_messages');
+            if(flashMessage){
+                flashMessage.style.display = 'none'
+            }
+        }, 3000)
+   </script>
+</body>
+</html>

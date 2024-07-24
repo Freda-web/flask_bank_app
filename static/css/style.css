@@ -1,0 +1,129 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar{
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    background-color: brown;
+    padding: 0 5%;
+    font-size: 18px;
+}
+
+.navbar .navlist{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+}
+
+.navbar .navlist a{
+    color: antiquewhite;
+    text-decoration: none;
+}
+
+.navbar .navlist p{
+    color: rgb(247, 150, 3);
+}
+
+h1{
+    text-align: center;
+}
+
+p{
+    text-align: center;
+}
+
+marquee{
+    padding: 10px 0;
+    color: brown;
+}
+
+main{
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+table{
+    border-collapse: collapse;
+    width: 100%;
+    margin: 2rem auto;
+}
+
+table td{
+    padding: 5px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+form label{
+    margin-top: 1rem;
+}
+
+form input{
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form button{
+    padding: 0.5rem;
+    margin-top: 1rem;
+    background-color: brown;
+    color: antiquewhite;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+form button:hover{
+    background-color: rgb(221, 171, 4);
+    color: brown;
+}
+
+footer{
+    width: 100%;
+    padding: 2rem;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background-color: brown;
+    text-align: center;
+    color: antiquewhite;
+
+}
+
+#flash_messages{
+    position: fixed;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+}
+
+.flash{
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    color: #fff;
+}
+
+.flash.success{
+    background-color: green;
+}
+
+.flash.danger{
+    background-color: red;
+}
