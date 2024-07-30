@@ -1,10 +1,6 @@
 from flask import Flask, render_template, redirect, url_for, flash, request, session # type: ignore
 from flask_bcrypt import Bcrypt # type: ignore
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user # type: ignore
-
-
-
-
 import mysql.connector # type: ignore
 from mysql.connector import Error # type: ignore
 
@@ -18,13 +14,12 @@ login_manager.login_view = 'login'
 # database connection
 def get_db_connection():
     connection = mysql.connector.connect(
-        host = 'sql12.freesqldatabase.com',
-        database = 'sql12723016',
-        username = 'sql12723016',
-        password = 'WbT7mfDpPC'
+        host = 'localhost',
+        database = 'db_bank',
+        username = 'root',
+        password = 'admin'
     )
     return connection
-
 
 # user class
 class User(UserMixin):
@@ -107,7 +102,7 @@ def register():
             connection.close()
             flash("Your account has been created successfully!", "success")
             return redirect(url_for('login'))
-        except Exception as e:
+        except Error as e:
             flash(f"Error: {e}", "danger")
     return render_template('register.html')
 
@@ -165,4 +160,4 @@ def logout():
     return redirect(url_for('home'))
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(debug=True)
